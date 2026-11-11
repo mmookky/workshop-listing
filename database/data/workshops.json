@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "title": "สีน้ำวาดดอกไม้",
+    "categories": ["ศิลปะ"],
+    "locations": ["ห้องเรียน A"],
+    "image": "workshop-1.jpg",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "ปั้นแก้วดินเผา",
+    "categories": ["ศิลปะ"],
+    "locations": ["ห้องเรียน B", "ลานกิจกรรม"],
+    "image": "workshop-2.jpg",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "ทำขนมปังซาวร์โดว์และตะกร้าสานใส่ขนมปัง ฉบับเริ่มต้นจนออกจากเตาได้จริง",
+    "categories": ["ทำอาหาร", "งานฝีมือ"],
+    "locations": ["ครัวกลาง"],
+    "image": null,
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "ถักหมวกไหมพรม",
+    "categories": ["งานฝีมือ"],
+    "locations": ["ห้องเรียน A"],
+    "image": "workshop-4.jpg",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "วาดภาพด้วยดินสอ",
+    "categories": ["ศิลปะ"],
+    "locations": ["ห้องเรียน B"],
+    "image": "workshop-5.jpg",
+    "featured": false
+  },
+  {
+    "id": 6,
+    "title": "อูคูเลเล่ 3 คอร์ดแรก",
+    "categories": ["ดนตรี"],
+    "locations": ["ห้องเรียน A", "ห้องเรียน B", "ออนไลน์"],
+    "image": "workshop-6.jpg",
+    "featured": false
+  },
+  {
+    "id": 7,
+    "title": "ทำน้ำสลัดโฮมเมด",
+    "categories": ["ทำอาหาร"],
+    "locations": ["ครัวกลาง"],
+    "image": null,
+    "featured": false
+  },
+  {
+    "id": 8,
+    "title": "ย้อมผ้าสีธรรมชาติ",
+    "categories": ["งานฝีมือ"],
+    "locations": ["ลานกิจกรรม"],
+    "image": "workshop-8.jpg",
+    "featured": true
+  }
+]
