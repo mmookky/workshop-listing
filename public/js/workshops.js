@@ -3,9 +3,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var cards = document.querySelectorAll('.workshop-list-card');
     var shownEl = document.querySelector('.workshop-list__count-shown');
     var ACTIVE_CLASS = 'workshop-list-filter__tab--active';
+    var ENTER_CLASS = 'workshop-list-card--entering';
 
     function filterCards(category) {
         var shown = 0;
+        var visibleCards = [];
 
         cards.forEach(function (card) {
             var cardCategories = card.dataset.categories.split('|');
@@ -15,10 +17,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (match) {
                 shown++;
+                visibleCards.push(card);
             }
         });
 
         shownEl.textContent = shown;
+        fadeIn(visibleCards);
+    }
+
+    function fadeIn(list) {
+        list.forEach(function (card) {
+            card.classList.add(ENTER_CLASS);
+        });
+
+        void document.body.offsetWidth;
+
+        list.forEach(function (card) {
+            card.classList.remove(ENTER_CLASS);
+        });
     }
 
     function setActiveTab(activeTab) {

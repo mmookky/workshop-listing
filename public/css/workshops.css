@@ -5,9 +5,14 @@
   border: 1px solid #D9E2DE;
   border-radius: 12px;
   overflow: hidden;
+  transition: opacity 0.7s ease;
 }
 .workshop-list-card[hidden] {
   display: none;
+}
+.workshop-list-card--entering {
+  opacity: 0;
+  transition: none;
 }
 .workshop-list-card__media {
   position: relative;
