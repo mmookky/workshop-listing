@@ -16,7 +16,10 @@
         @endforeach
     </div>
 
-    <p class="workshop-list__count">แสดง {{ count($workshops) }} จาก {{ count($workshops) }} รายการ</p>
+    <p class="workshop-list__count">
+         แสดง <span class="workshop-list__count-shown">{{ count($workshops) }}</span>
+         จาก <span class="workshop-list__count-total">{{ count($workshops) }}</span> รายการ
+    </p>
 
     <div class="workshop-list__grid">
         @forelse ($workshops as $workshop)

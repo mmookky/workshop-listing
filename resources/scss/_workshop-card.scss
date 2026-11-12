@@ -6,6 +6,10 @@
     border-radius: $radius-card;
     overflow: hidden;
 
+    &[hidden] {
+        display: none;
+    }
+
     &__media {
         position: relative;
         aspect-ratio: #{$image-ratio-width} / #{$image-ratio-height};
