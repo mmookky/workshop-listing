@@ -3,11 +3,14 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "sass": "sass resources/scss/workshops.scss public/css/workshops.css --no-source-map",
+        "sass:watch": "sass resources/scss/workshops.scss public/css/workshops.css --no-source-map --watch"
     },
     "devDependencies": {
         "axios": "^1.6.4",
         "laravel-vite-plugin": "^1.0",
+        "sass": "^1.108.2",
         "vite": "^5.0"
     }
 }

@@ -1,0 +1,60 @@
+@use "sass:math";
+@import "variables";
+@import "mixins";
+@import "workshop-card";
+@import "workshop-filter";
+
+.workshop-list {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: $space-xl $space-md;
+  background: $color-bg-section;
+  color: $color-text;
+  font-family: $font-family-base;
+
+  &__header {
+    margin-bottom: $space-lg;
+    text-align: center;
+  }
+
+  &__title {
+    margin: 0 0 $space-sm;
+    font-size: $font-size-xxl;
+  }
+
+  &__subtitle {
+    margin: 0;
+    color: $color-text-muted;
+  }
+
+  &__count {
+    margin: 0 0 $space-lg;
+    text-align: center;
+    color: $color-text-muted;
+    font-size: $font-size-sm;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-lg;
+
+    @include tablet-down {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile-down {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: $color-text-muted;
+  }
+
+  @include mobile-down {
+    padding: $space-lg $space-md;
+  }
+}

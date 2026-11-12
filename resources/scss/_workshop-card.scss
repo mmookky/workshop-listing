@@ -1,0 +1,98 @@
+.workshop-list-card {
+    display: flex;
+    flex-direction: column;
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-card;
+    overflow: hidden;
+
+    &__media {
+        position: relative;
+        aspect-ratio: #{$image-ratio-width} / #{$image-ratio-height};
+        overflow: hidden;
+        background: $color-placeholder-bg;
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__placeholder-icon {
+        width: 30%;
+        fill: none;
+        stroke: $color-placeholder-icon;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    &__badge {
+        position: absolute;
+        top: $space-sm;
+        left: $space-sm;
+        padding: $space-xs $space-md;
+        background: $color-badge;
+        color: $color-text;
+        font-size: $font-size-sm;
+        font-weight: 700;
+        border-radius: $radius-pill;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: $space-md;
+    }
+
+    &__title {
+        margin: 0 0 $space-sm;
+        font-size: $font-size-lg;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    &__category,
+    &__location {
+        margin: 0 0 $space-xs;
+        font-size: $font-size-sm;
+        color: $color-text-muted;
+    }
+
+    &__button {
+        margin-top: auto;
+        padding: $space-sm $space-md;
+        background: $color-primary;
+        color: $color-white;
+        font-family: inherit;
+        font-size: $font-size-base;
+        border: 0;
+        border-radius: $radius-card;
+        cursor: pointer;
+
+        &:hover,
+        &:focus-visible {
+            background: $color-primary-dark;
+        }
+    }
+}

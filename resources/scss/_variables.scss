@@ -1,0 +1,39 @@
+// color
+$color-primary: #2F6F5E;
+$color-text: #333333;
+$color-bg-section: #F4F7F5;
+$color-badge: #E8A33D;
+
+// add-on
+$color-white: #FFFFFF;
+$color-border: #D9E2DE;
+$color-placeholder-bg: #E3EAE6;
+$color-placeholder-icon: #9AAFA7;
+$color-text-muted: #6B7A74;
+$color-primary-dark: #245748; // hover
+
+// font
+$font-family-base: "Noto Sans Thai", "Sarabun", "Tahoma", sans-serif;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.5rem;
+$font-size-xxl: 2rem;
+
+// spacing
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;
+
+// layout
+$container-max-width: 1320px;
+$radius-card: 12px;
+$radius-pill: 999px;
+$image-ratio-width: 3;
+$image-ratio-height: 4;
+
+// breakpoints
+$breakpoint-tablet: 1200px;   // max-width
+$breakpoint-mobile: 767px;    // max-width
