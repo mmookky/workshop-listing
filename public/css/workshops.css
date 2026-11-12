@@ -138,6 +138,11 @@
   }
 }
 
+.workshop-list-page {
+  margin: 0;
+  background: #F4F7F5;
+}
+
 .workshop-list {
   max-width: 1320px;
   margin: 0 auto;

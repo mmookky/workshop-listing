@@ -4,6 +4,11 @@
 @import "workshop-card";
 @import "workshop-filter";
 
+.workshop-list-page {
+  margin: 0;
+  background: $color-bg-section;
+}
+
 .workshop-list {
   max-width: $container-max-width;
   margin: 0 auto;
