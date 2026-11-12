@@ -83,6 +83,10 @@
         color: $color-text-muted;
     }
 
+    &__location {
+        margin-bottom: $space-md;
+    }
+
     &__button {
         margin-top: auto;
         padding: $space-sm $space-md;

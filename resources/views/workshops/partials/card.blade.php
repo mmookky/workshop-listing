@@ -7,14 +7,14 @@
                  src="{{ asset('images/workshops/' . $workshop['image']) }}"
                  alt="{{ $workshop['title'] }}">
         @else
-            <div class="workshop-list-card__placeholder">ไม่มีรูป</div>
-            <!-- <div class="workshop-list-card__placeholder" role="img" aria-label="ไม่มีรูป">
+            <!-- <div class="workshop-list-card__placeholder">ไม่มีรูป</div> -->
+            <div class="workshop-list-card__placeholder" role="img" aria-label="ไม่มีรูป">
                 <svg class="workshop-list-card__placeholder-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                     <rect x="3" y="3" width="18" height="18" rx="2"></rect>
                     <circle cx="8.5" cy="8.5" r="1.5"></circle>
                     <path d="M21 15l-5-5L5 21"></path>
                 </svg>
-            </div> -->
+            </div>
         @endif
 
         @if ($workshop['featured'])

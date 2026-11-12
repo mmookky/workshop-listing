@@ -73,6 +73,9 @@
   font-size: 0.875rem;
   color: #6B7A74;
 }
+.workshop-list-card__location {
+  margin-bottom: 1rem;
+}
 .workshop-list-card__button {
   margin-top: auto;
   padding: 0.5rem 1rem;
