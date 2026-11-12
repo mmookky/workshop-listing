@@ -115,7 +115,7 @@
   outline: 2px solid #2F6F5E;
   outline-offset: 2px;
 }
-.workshop-list-filter__tab.is-active {
+.workshop-list-filter__tab--active, .workshop-list-filter__tab--active:hover {
   background: #2F6F5E;
   border-color: #2F6F5E;
   color: #FFFFFF;

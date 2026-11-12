@@ -10,9 +10,9 @@
     </header>
 
     <div class="workshop-list-filter">
-        <button type="button" class="workshop-list-filter__tab is-active" data-category="all">ทั้งหมด</button>
+        <button type="button" class="workshop-list-filter__tab workshop-list-filter__tab--active" data-category="all">ทั้งหมด</button>
         @foreach ($categories as $category)
-            <button type="button" class="workshop-list-filter__tab" data-category="{{ $category }}">{{ $category }}</button>
+        <button type="button" class="workshop-list-filter__tab" data-category="{{ $category }}">{{ $category }}</button>
         @endforeach
     </div>
 

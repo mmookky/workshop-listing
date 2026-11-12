@@ -1,44 +1,45 @@
 .workshop-list-filter {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: $space-sm;
-  margin-bottom: $space-md;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $space-sm;
+    margin-bottom: $space-md;
 
-  &__tab {
-    flex-shrink: 0;
-    padding: $space-sm $space-lg;
-    background: $color-white;
-    color: $color-text;
-    font-family: inherit;
-    font-size: $font-size-base;
-    border: 1px solid $color-border;
-    border-radius: $radius-pill;
-    cursor: pointer;
-    white-space: nowrap;
+    &__tab {
+        flex-shrink: 0;
+        padding: $space-sm $space-lg;
+        background: $color-white;
+        color: $color-text;
+        font-family: inherit;
+        font-size: $font-size-base;
+        border: 1px solid $color-border;
+        border-radius: $radius-pill;
+        cursor: pointer;
+        white-space: nowrap;
 
-    &:hover {
-      border-color: $color-primary;
-      color: $color-primary;
+        &:hover {
+            border-color: $color-primary;
+            color: $color-primary;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $color-primary;
+            outline-offset: 2px;
+        }
+
+        &--active,
+        &--active:hover {
+            background: $color-primary;
+            border-color: $color-primary;
+            color: $color-white;
+            font-weight: 700;
+        }
     }
 
-    &:focus-visible {
-      outline: 2px solid $color-primary;
-      outline-offset: 2px;
+    @include mobile-down {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: $space-sm;
     }
-
-    &.is-active {
-      background: $color-primary;
-      border-color: $color-primary;
-      color: $color-white;
-      font-weight: 700;
-    }
-  }
-
-  @include mobile-down {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: $space-sm;
-  }
 }
