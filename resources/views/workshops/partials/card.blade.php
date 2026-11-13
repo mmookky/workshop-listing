@@ -1,3 +1,17 @@
+@php
+    $title = Lang::has('workshops.titles.' . $workshop['id'])
+        ? __('workshops.titles.' . $workshop['id'])
+        : $workshop['title'];
+
+    $categoryLabels = collect($workshop['categories'])->map(
+        fn ($c) => Lang::has("workshops.categories.$c") ? __("workshops.categories.$c") : $c
+    );
+
+    $locationLabels = collect($workshop['locations'])->map(
+        fn ($l) => Lang::has("workshops.locations.$l") ? __("workshops.locations.$l") : $l
+    );
+@endphp
+
 <article class="workshop-list-card"
          data-categories="{{ implode('|', $workshop['categories']) }}">
 
@@ -5,7 +19,7 @@
         @if ($workshop['image'])
             <img class="workshop-list-card__image"
                  src="{{ asset('images/workshops/' . $workshop['image']) }}"
-                 alt="{{ $workshop['title'] }}">
+                 alt="{{ $title }}">
         @else
             <div class="workshop-list-card__placeholder" role="img" aria-label="@lang('workshops.no_image')">
                 <svg class="workshop-list-card__placeholder-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -23,11 +37,11 @@
     </div>
 
     <div class="workshop-list-card__body">
-        <h2 class="workshop-list-card__title" title="{{ $workshop['title'] }}">
-            {{ $workshop['title'] }}
+        <h2 class="workshop-list-card__title" title="{{ $title }}">
+            {{ $title }}
         </h2>
-        <p class="workshop-list-card__category">@lang('workshops.category') : {{ collect($workshop['categories'])->map(fn ($c) => Lang::has("workshops.categories.$c") ? __("workshops.categories.$c") : $c)->implode(', ') }}</p>
-        <p class="workshop-list-card__location">@lang('workshops.location') : {{ collect($workshop['locations'])->map(fn ($l) => Lang::has("workshops.locations.$l") ? __("workshops.locations.$l") : $l)->implode(' · ') }}</p>
+        <p class="workshop-list-card__category">@lang('workshops.category') : {{ $categoryLabels->implode(', ') }}</p>
+        <p class="workshop-list-card__location">@lang('workshops.location') : {{ $locationLabels->implode(' · ') }}</p>
         <button type="button" class="workshop-list-card__button">@lang('workshops.enroll')</button>
     </div>
 </article>

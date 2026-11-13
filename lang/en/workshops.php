@@ -2,6 +2,16 @@
 
 return [
     'title' => 'Our Workshops',
+    'titles' => [
+        1 => 'Watercolor Flowers',
+        2 => 'Pottery Cup Making',
+        3 => 'Sourdough Bread and Woven Bread Basket: Beginner to First Bake',
+        4 => 'Knit a Beanie',
+        5 => 'Pencil Drawing',
+        6 => 'Ukulele: First 3 Chords',
+        7 => 'Homemade Salad Dressing',
+        8 => 'Natural Fabric Dyeing',
+    ],
     'subtitle' => 'Find the class that suits you, across many categories',
     'all' => 'All',
     'showing' => 'Showing :shown of :total items',
