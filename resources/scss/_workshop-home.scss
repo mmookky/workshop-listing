@@ -1,0 +1,31 @@
+.workshop-list-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: $font-family-base;
+    background: $color-bg-section;
+
+    &__button {
+        display: inline-flex;
+        align-items: center;
+        gap: $space-sm;
+        padding: $space-md $space-xl;
+        background: $color-primary;
+        color: $color-white;
+        font-size: $font-size-lg;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: $radius-pill;
+        box-shadow: 0 4px 12px rgba($color-primary, 0.3);
+
+        &:hover {
+            background: $color-primary-dark;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $color-primary;
+            outline-offset: 4px;
+        }
+    }
+}
