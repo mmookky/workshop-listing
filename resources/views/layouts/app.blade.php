@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'เวิร์กช็อปของเรา')</title>
+    <title>@yield('title', __('workshops.title'))</title>
     <link rel="stylesheet" href="{{ asset('css/workshops.css') }}">
 </head>
 <body class="workshop-list-page">
