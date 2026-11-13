@@ -1,66 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# เวิร์กช็อปของเรา (Workshop Listing)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+หน้า `/workshops` แสดงการ์ดเวิร์กช็อป กรองตามหมวดได้ และ responsive 3 ขนาดจอ
+ทำด้วย Laravel 11 + Blade + SCSS + JavaScript ล้วน (ไม่มี Bootstrap/Tailwind, ไม่มี Vue/React/Livewire, ไม่ใช้ฐานข้อมูล)
 
-## About Laravel
+## 1. วิธีรัน
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+ต้องมี PHP 8.2–8.4 และ Composer (PHP 8.5 รันได้ แต่ Laravel 11 จะแสดงคำเตือน deprecated) (Node.js ใช้เฉพาะตอนจะ compile SCSS ใหม่)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```bash
+git clone https://github.com/mmookky/workshop-listing.git
+cd workshop-listing
+composer install
+cp .env.example .env 
+php artisan key:generate
+php artisan serve
+```
+เปิด http://127.0.0.1:8000/workshops
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```bash
+npm install
+npm run sass          # compile ครั้งเดียว
+npm run sass:watch    # compile ใหม่อัตโนมัติทุกครั้งที่บันทึก
+```
 
-## Learning Laravel
+## 2. ภาพหน้าจอ
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+| Desktop | Tablet | Mobile |
+|---|---|---|
+| ![Desktop](docs/screenshots/desktop.png) | ![Tablet](docs/screenshots/tablet.png) | ![Mobile](docs/screenshots/mobile.png) |
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 3. คำตอบกรณีที่ต้องคิดเอง
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**1) หลายหมวด (id 3)**
+การ์ดขึ้นในทุก tab ที่ตรงกัน (ทั้ง "ทำอาหาร" และ "งานฝีมือ") เก็บหมวดไว้ใน `data-categories="ทำอาหาร|งานฝีมือ"` คั่นด้วย `|` แล้ว JS `split('|')` และเช็คด้วย `indexOf` เพื่อให้ตรงทั้งคำ ค่าใน `data-*` เป็นชื่อหมวดจากข้อมูลโดยตรง การกรองจึงทำงานเหมือนกันทั้งสองภาษา
 
-## Laravel Sponsors
+**2) ชื่อยาวมาก (id 3)**
+ตัดที่ 2 บรรทัดด้วย `line-clamp` และใส่ `title` ไว้ให้เห็นชื่อเต็มตอนเอาเมาส์ชี้ แต่ยังให้ปุ่มอยู่ล่างสุด
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+**3) ไม่มีรูป (id 3, 7)**
+แสดงไอคอนรูปภาพที่มีเส้นขีดฆ่า ใช้ SVG เพราะไม่ต้องมีไฟล์รูปเพิ่ม ไม่เปลืองทรัพยากรในการโหลด จัดการที่ **Blade** ด้วย `@if` เพราะเป็นเรื่องการแสดงผล ไม่ได้แก้ค่า `null` ในข้อมูลหรือ Controller 
 
-### Premium Partners
+**4) หลายสถานที่ (id 6)**
+เชื่อมในบรรทัดเดียวด้วย ", " คิดว่า common แล้วอ่านง่าย
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+**5) tab ที่มีรายการเดียว (ดนตรี)**
+การ์ดชิดซ้ายของ grid และกว้างเท่าการ์ดปกติ (1 ใน 4 คอลัมน์) ไม่ยืดเต็มแถว เพราะรูป 3:4 ถ้ายืดเต็มแถวจะใหญ่เกินและผิดสัดส่วน
 
-## Contributing
+## 4. สิ่งที่ตัดสินใจเอง (โจทย์ไม่ได้บอก)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **Laravel 11 และ `--no-security-blocking`:** Composer 2.11 ปฏิเสธติดตั้ง `laravel/framework` 11.x ทุกรุ่นเพราะมี security advisories 
+AI แนะนำ 13 แต่ ถ้าประเมินจากโปรเจกต์ไม่ได้มีข้อมูลอะไรที่น่าเป็นห่วง ไม่มีฐานข้อมูล ไม่มีข้อมูลสำคัญ และไม่ได้ deploy  เลยใช้ 11 ตามโจทย์
+- **สีเสริม:** นอกจากสีที่โจทย์แนะนำ 4 สี เพิ่มสีสำหรับขอบ พื้นหลัง placeholder และปุ่มตอน hover (อยู่ใน `_variables.scss`)
 
-## Code of Conduct
+## 5. ถ้ามีเวลาจะทำอะไรต่อ
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- ช่องค้นหาชื่อเวิร์กช็อป
+- เรียงลำดับ (เช่น แนะนำก่อน) หรือกรองตามสถานที่
 
-## Security Vulnerabilities
+## 6. ที่มาของรูป
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+รูปอยู่ใน `public/images/workshops/` (ย่อขนาดแล้ว)
 
-## License
+| ไฟล์ | เว็บ | ผู้สร้าง / ลิงก์ |
+|---|---|---|
+| workshop-1.jpg | Unsplash | Victoria Berman — https://unsplash.com/photos/red-petaled-flower-painting-U-ouhtPgHH4 |
+| workshop-2.jpg | Magnific (ภาพ AI ฟรี) | ไม่ทราบชื่อผู้สร้าง — https://www.magnific.com/free-ai-image/beautiful-pottery-work_359218353.htm |
+| workshop-4.jpg | Magnific (ภาพถ่ายฟรี) | ไม่ทราบชื่อผู้สร้าง — https://www.magnific.com/free-photo/woman-home-knitting-close-up_13447932.htm |
+| workshop-5.jpg | Magnific (ภาพถ่ายฟรี) | pressfoto — https://www.magnific.com/free-photo/woman-learning-draw_5400090.htm |
+| workshop-6.jpg | Unsplash | CJ — https://unsplash.com/photos/a-wooden-guitar-sitting-on-top-of-a-sandy-beach-0k_QICzdzmw |
+| workshop-8.jpg | Unsplash | Zhang Yi — https://unsplash.com/photos/colorful-fabrics-hanging-and-drying-in-sunlight-LlVUOR0eGcY |
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 7. การใช้ AI
+
+ใช้ Claude ในลักษณะของการไปทีละขั้นตอน
+- ให้ช่วยแนะนำ php Laravel SCSS การใช้งาน การติดตั้ง
+- ร่างโค้ด Blade / SCSS / JavaScript โดยการอธิบายโดยละเอียดของการทำงานแต่ละส่วน
+- ให้ช่วยสแกนหาข้อผิดพลาดและตรวจสอบความถูกต้องของ source code
+- ให้ช่วยในทุกส่วน แต่เน้นทีละ step เพื่อความละเอียดและการทำความเข้าใจ

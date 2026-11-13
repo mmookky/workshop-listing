@@ -41,7 +41,7 @@
             {{ $title }}
         </h2>
         <p class="workshop-list-card__category">@lang('workshops.category') : {{ $categoryLabels->implode(', ') }}</p>
-        <p class="workshop-list-card__location">@lang('workshops.location') : {{ $locationLabels->implode(' · ') }}</p>
+        <p class="workshop-list-card__location">@lang('workshops.location') : {{ $locationLabels->implode(', ') }}</p>
         <button type="button" class="workshop-list-card__button">@lang('workshops.enroll')</button>
     </div>
 </article>
