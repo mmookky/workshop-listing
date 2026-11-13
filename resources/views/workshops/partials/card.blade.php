@@ -1,5 +1,5 @@
 @php
-    $title = Lang::has('workshops.titles.' . $workshop['id'])
+    $title = Lang::hasForLocale('workshops.titles.' . $workshop['id'])
         ? __('workshops.titles.' . $workshop['id'])
         : $workshop['title'];
 
